@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elias Dami Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* VOICE serious and elegant, motion as the flourish, never decoration for its own sake
+   IDEA one signal field: every visual on the page is made of the same white dots as the hero wave
+   PICTURE the user's dotted terrain, flipped to hang from the top; project figures assembled from dots
+   COLOUR near-black, white ink, two greys, lime only on actions and the one live result
+   TYPE Inter Tight light/medium display, Inter text
+   LAYOUT one 1200px column, one gutter, one section rhythm, hairlines instead of boxes */
+:root{color-scheme:dark;--bg:#060606;--ink:#f2f2ef;--mute:#8f8f8c;--dim:#565654;--line:#ffffff14;--lime:#c8ff3d;--g:clamp(20px,5vw,72px);--sec:clamp(96px,12vw,168px);--wh:clamp(360px,64vh,640px)}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Inter,system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:"Inter Tight",Inter,sans-serif;font-weight:400;letter-spacing:-.04em;line-height:1;margin:0}
+h2{font-size:clamp(40px,6vw,84px)}
+p{margin:0}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:var(--g)}
+.sec{padding-block:var(--sec)}
+.hl{border-top:1px solid var(--line)}
+.k{font-size:14px;color:var(--mute)}
+#prog{position:fixed;top:0;left:0;height:1px;width:100%;background:var(--lime);transform-origin:0 50%;transform:scaleX(0);z-index:60}
+nav{position:fixed;inset:0 0 auto;z-index:50;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+nav.solid{background:#060606b8;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:76px}
+.logo{font:500 17px "Inter Tight",sans-serif;letter-spacing:-.02em}
+.links{display:flex;gap:36px}
+.links a{font-size:14px;color:var(--mute);transition:color .25s}
+.links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 28px;border-radius:99px;font:500 15px Inter,sans-serif;border:1px solid #ffffff2e;color:var(--ink);background:transparent;cursor:pointer;white-space:nowrap;transition:background .3s,border-color .3s,box-shadow .4s,color .3s;will-change:transform}
+.btn:hover{border-color:#ffffff70}
+.btn.go{background:var(--lime);border-color:var(--lime);color:#0a0a0a}
+.btn.go:hover{box-shadow:0 0 0 8px #c8ff3d1c,0 12px 48px #c8ff3d38}
+nav .btn{min-height:44px;padding:0 22px;font-size:14px}
+:focus-visible{outline:1px solid var(--lime);outline-offset:4px}
+.hero{position:relative;padding-top:calc(var(--wh)*.6);padding-bottom:clamp(64px,9vw,120px)}
+#wave{position:absolute;top:0;left:0;width:100%;height:var(--wh);display:block;-webkit-mask-image:linear-gradient(#000 50%,transparent 97%);mask-image:linear-gradient(#000 50%,transparent 97%)}
+.hin{position:relative}
+.hero h1{font-size:clamp(52px,8.4vw,122px);font-weight:400;letter-spacing:-.055em;line-height:.92}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.08em}
+.hero h1 .ln>span{display:block;animation:rise 1.3s cubic-bezier(.16,.84,.24,1) backwards}
+.hero h1 .ln:nth-child(2)>span{animation-delay:.1s;color:var(--dim)}
+@keyframes rise{from{transform:translateY(108%)}}
+.hgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:end;margin-top:clamp(36px,5vw,56px);animation:fade 1.2s .55s backwards}
+.hgrid p{font-size:clamp(17px,1.5vw,19px);color:var(--mute);max-width:42ch}
+.hgrid .acts{display:flex;justify-content:flex-end;gap:12px;flex-wrap:wrap}
+@keyframes fade{from{opacity:0;transform:translateY(16px)}}
+.num{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:48px;align-items:baseline;padding-block:clamp(28px,4vw,44px);border-top:1px solid var(--line)}
+.num:last-child{border-bottom:1px solid var(--line)}
+.num b{font:300 clamp(64px,10vw,140px)/.9 "Inter Tight",sans-serif;letter-spacing:-.06em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.num div{display:grid;gap:6px}
+.num strong{font:400 clamp(20px,2vw,26px)/1.2 "Inter Tight",sans-serif;letter-spacing:-.02em}
+.num span{color:var(--mute);font-size:15px;max-width:38ch}
+.shead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:end;margin-bottom:clamp(56px,8vw,104px)}
+.shead p{color:var(--mute);font-size:18px;max-width:42ch}
+.case{padding-block:clamp(56px,7vw,96px);border-top:1px solid var(--line)}
+.case:last-child{padding-bottom:0}
+.chead{display:grid;gap:6px;justify-items:start;margin-bottom:20px}
+.chead span{font-size:15px;color:var(--mute)}
+.chead .date{font:400 clamp(20px,2vw,26px) "Inter Tight",sans-serif;letter-spacing:-.02em;color:var(--ink)}
+.case h3{font-size:clamp(48px,8vw,112px);font-weight:300;letter-spacing:-.055em;line-height:.95;margin-bottom:clamp(36px,5vw,56px)}
+.cgrid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,6vw,88px);align-items:start}
+.desc{font-size:18px;color:#d4d4d1;margin-bottom:32px}
+.kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line);margin-bottom:32px}
+.kv div{padding:18px 16px 18px 0;border-bottom:1px solid var(--line)}
+.kv div:nth-child(even){padding-left:16px;border-left:1px solid var(--line)}
+.kv b{display:block;font:400 28px/1 "Inter Tight",sans-serif;letter-spacing:-.03em;white-space:nowrap}
+.kv span{display:block;font-size:13px;color:var(--mute);margin-top:8px}
+.case ul{list-style:none;padding:0;margin:0 0 32px;display:grid;gap:14px}
+.case li{color:var(--mute);padding-left:24px;position:relative}
+.case li::before{content:"";position:absolute;left:0;top:.8em;width:12px;height:1px;background:var(--dim)}
+.tl{display:inline-flex;gap:10px;align-items:center;font-size:15px;padding-bottom:6px;background:linear-gradient(var(--ink),var(--ink)) 0 100%/0 1px no-repeat,linear-gradient(var(--line),var(--line)) 0 100%/100% 1px no-repeat;transition:background-size .5s cubic-bezier(.16,.84,.24,1)}
+.tl:hover{background-size:100% 1px,100% 1px}
+.viz{position:relative;aspect-ratio:4/3;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.viz canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.brand{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,40px)}
+.mark{display:flex;align-items:center;gap:14px;min-height:56px}
+.mark .lg{height:56px;min-width:56px;padding:0 18px;border:1px solid var(--line);border-radius:14px;display:grid;place-items:center;font:500 18px "Inter Tight",sans-serif;letter-spacing:-.02em;background:#0d0d0d}
+.mark .lg img{max-height:36px;max-width:160px;display:block}
+.mark span{font-size:13px;color:var(--dim)}
+.site{background:var(--lime);color:#0a0a0a;border-color:var(--lime);font-weight:600}
+.site:hover{box-shadow:0 0 0 8px #c8ff3d1c,0 12px 48px #c8ff3d38}
+.hi{color:var(--lime)}
+.case li em{font-style:normal;color:var(--lime)}
+.kv b{color:var(--lime)}
+.num b{color:var(--lime)}
+.cap{display:flex;justify-content:space-between;gap:16px;font-size:13px;color:var(--dim);margin-top:14px;flex-wrap:wrap}
+.calc .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,88px);align-items:end}
+.calc .lead{color:var(--mute);font-size:18px;margin:28px 0 48px;max-width:42ch}
+.rl{display:flex;justify-content:space-between;font-size:14px;color:var(--mute);margin-bottom:10px}
+.rl output{color:var(--ink);font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;height:44px;background:transparent;-webkit-appearance:none;appearance:none;cursor:pointer;margin:0}
+input[type=range]::-webkit-slider-runnable-track{height:1px;background:linear-gradient(90deg,var(--ink) var(--p,10%),#ffffff2a var(--p,10%))}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--ink);margin-top:-9px;box-shadow:0 0 0 8px #ffffff10;transition:box-shadow .3s}
+input[type=range]:active::-webkit-slider-thumb{box-shadow:0 0 0 12px #ffffff18}
+input[type=range]::-moz-range-track{height:1px;background:#ffffff2a}
+input[type=range]::-moz-range-progress{height:1px;background:var(--ink)}
+input[type=range]::-moz-range-thumb{width:18px;height:18px;border:0;border-radius:50%;background:var(--ink)}
+.pre{display:flex;gap:24px;margin-top:16px;flex-wrap:wrap}
+.pre button{min-height:44px;padding:0;border:0;background:none;color:var(--dim);font:500 14px Inter,sans-serif;cursor:pointer;transition:color .2s}
+.pre button:hover,.pre button.on{color:var(--ink)}
+.out .big{font:300 clamp(80px,12vw,168px)/.85 "Inter Tight",sans-serif;letter-spacing:-.06em;color:var(--lime);font-variant-numeric:tabular-nums;white-space:nowrap}
+.out .sub{color:var(--mute);margin:18px 0 36px}
+.out .kv{margin:0}
+.out .kv b{color:var(--ink)}
+.caps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
+.cp{padding:32px 24px 0 0}
+.cp+.cp{padding-left:24px;border-left:1px solid var(--line)}
+.cp h4{font:400 19px "Inter Tight",sans-serif;letter-spacing:-.02em;margin:0 0 20px}
+.cp ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;color:var(--mute);font-size:15px}
+.about .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,88px)}
+.about p{font-size:clamp(18px,1.6vw,21px);line-height:1.6;color:#cfcfcc}
+.about p+p{margin-top:24px}
+.contact h2{font-size:clamp(56px,10vw,150px);font-weight:300;letter-spacing:-.055em;line-height:.92}
+.contact h2 .dim{color:var(--dim)}
+.cta{margin-top:clamp(40px,5vw,56px)}
+.crow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);margin-top:clamp(64px,8vw,104px)}
+.ci{padding:28px 24px 0 0;display:grid;gap:8px;align-content:start;justify-items:start}
+.ci+.ci{padding-left:24px;border-left:1px solid var(--line)}
+.ci b{font-weight:400;font-size:18px;overflow-wrap:anywhere}
+.copy{min-height:32px;padding:0;border:0;background:none;color:var(--dim);font:500 13px Inter,sans-serif;cursor:pointer;transition:color .2s}
+.copy:hover{color:var(--ink)}
+footer{padding-block:36px;color:var(--dim);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.sw{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
+.sw>span{display:inline-block}
+.js [data-split] .sw>span{transform:translateY(108%);transition:transform 1.1s cubic-bezier(.16,.84,.24,1);transition-delay:calc(var(--i)*45ms)}
+.js [data-split].in .sw>span{transform:none}
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity 1.1s cubic-bezier(.16,.84,.24,1),transform 1.1s cubic-bezier(.16,.84,.24,1);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+#cur{position:fixed;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border:1px solid #ffffff55;border-radius:50%;pointer-events:none;z-index:70;transition:width .3s,height .3s,margin .3s,background .3s,border-color .3s,opacity .3s;opacity:0}
+#cur.big{width:64px;height:64px;margin:-32px 0 0 -32px;background:#ffffff10;border-color:#ffffff30}
+@media(hover:none){#cur{display:none}}
+@media(max-width:900px){.links{display:none}.hgrid,.shead,.cgrid,.calc .grid,.about .grid,.num{grid-template-columns:minmax(0,1fr)}.hgrid .acts{justify-content:flex-start}.shead{gap:20px}.num{gap:14px}.caps{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:36px}.cp:nth-child(3){padding-left:0;border-left:0}}
+@media(max-width:600px){:root{--wh:clamp(300px,52vh,440px)}.caps,.crow{grid-template-columns:minmax(0,1fr)}.cp+.cp,.ci+.ci{padding-left:0;border-left:0}.ci+.ci{margin-top:4px}nav .btn{padding:0 18px}.kv b{font-size:24px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}.js [data-split] .sw>span{transform:none}#cur{display:none}}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<div id="cur"></div>
+<nav id="nav"><div class="wrap">
+  <a class="logo" href="#top">Elias Dami</a>
+  <div class="links"><a href="#work">Work</a><a href="#results">Results</a><a href="#caps">Capabilities</a><a href="#about">About</a></div>
+  <a class="btn go mag" href="#contact">Get in touch</a>
+</div></nav>
+
+<header class="hero" id="top">
+  <canvas id="wave" aria-hidden="true"></canvas>
+  <div class="wrap hin" id="hin">
+    <h1><span class="ln"><span>Elias Dami</span></span><span class="ln"><span>Growth marketer</span></span></h1>
+    <div class="hgrid">
+      <p><span class="hi">Paid social, content and AI-driven automation</span>, run end to end for <span class="hi">three companies at once</span>: a SaaS platform, an e-commerce manufacturer and a marketing agency.</p>
+      <div class="acts"><a class="btn go mag" href="#contact">Get in touch</a><a class="btn mag" href="#work">View work</a></div>
+    </div>
+  </div>
+</header>
+
+<section class="sec" id="results" style="padding-top:0"><div class="wrap">
+  <div class="num rv"><b data-n="1250" data-s="+">1,250+</b><div><strong>Posts and creatives shipped</strong><span>Across Lottolens and FitPlate, produced with Canva and AI workflows.</span></div></div>
+  <div class="num rv"><b data-n="0.12" data-p="$">$0.12</b><div><strong>Average cost per click</strong><span>On Meta campaigns I planned, launched and optimized myself for Lottolens.</span></div></div>
+  <div class="num rv"><b data-n="4" data-s=":1">4:1</b><div><strong>Lifetime value to acquisition cost</strong><span>Every customer worth about four times what it cost to win them.</span></div></div>
+  <div class="num rv"><b data-n="118">118</b><div><strong>Contractors managed</strong><span>The EDK Business Solutions network I recruit for and coordinate.</span></div></div>
+</div></section>
+
+<section class="sec hl" id="work"><div class="wrap">
+  <div class="shead">
+    <h2 data-split>Selected work</h2>
+    <p class="rv" style="--d:.15s">Three companies in three markets, each run end to end: strategy, creative, paid acquisition and the systems that keep it shipping.</p>
+  </div>
+
+  <article class="case">
+    <div class="chead rv"><span>Micro-SaaS · Marketing Lead</span><span class="date">Sep 2025 – present</span></div>
+    <div class="rv"><div class="brand"><div class="mark"><div class="lg">Lottolens</div></div><a class="btn site mag" href="https://www.lottolens.com/">Visit lottolens.com ↗</a></div></div>
+    <h3 data-split>Lottolens</h3>
+    <div class="cgrid">
+      <div class="rv">
+        <p class="desc">Lottery analytics platform covering draw results, trends and probabilities across <span class="hi">45 states</span>, DC, Puerto Rico and the US Virgin Islands.</p>
+        <div class="kv"><div><b>$0.12</b><span>Average cost per click</span></div><div><b>4:1</b><span>LTV to CAC</span></div><div><b>300+</b><span>Social posts</span></div><div><b>30</b><span>Ad creatives</span></div></div>
+        <ul>
+          <li>Own <em>paid acquisition end to end</em>, planning, launching and optimizing <em>every Meta campaign</em>.</li>
+          <li>Built a <em>profitable growth engine</em> where each customer returns about <em>four times its acquisition cost</em>.</li>
+          <li>Run the <em>full organic and paid creative pipeline</em> with Canva and AI tools.</li>
+        </ul>
+      </div>
+      <div class="rv" style="--d:.15s"><div class="viz"><canvas data-shape="bars" aria-hidden="true"></canvas></div><div class="cap"><span>Draw frequency in dots, illustrative</span></div></div>
+    </div>
+  </article>
+
+  <article class="case">
+    <div class="chead rv"><span>E-commerce manufacturing · Marketing Lead</span><span class="date">Oct 2026 – present</span></div>
+    <div class="rv"><div class="brand"><div class="mark"><div class="lg">FitPlate</div></div><a class="btn site mag" href="https://fitplatebuild.com/">Visit fitplatebuild.com ↗</a></div></div>
+    <h3 data-split>FitPlate</h3>
+    <div class="cgrid">
+      <div class="rv">
+        <p class="desc">Custom aero parts and switch panels for cars, trucks, off-road and sim rigs, designed in a <span class="hi">browser configurator</span> and <span class="hi">laser-cut to order</span>.</p>
+        <div class="kv"><div><b>950+</b><span>Posts and creatives</span></div><div><b>~7 weeks</b><span>In the role</span></div></div>
+        <ul>
+          <li>Lead <em>all marketing</em> across multiple platforms, shipping <em>950+ posts and creatives</em>.</li>
+          <li>Designed and launched the <em>FitPlate Build website</em>, shaping how customers discover and configure parts.</li>
+          <li>Engineered recurring automation loops with <em>agentic AI workflows</em> (Muse, Claude) that multiply output <em>without adding headcount</em>.</li>
+        </ul>
+      </div>
+      <div class="rv" style="--d:.15s"><div class="viz"><canvas data-shape="plate" aria-hidden="true"></canvas></div><div class="cap"><span>A switch panel cut from dots, illustrative</span></div></div>
+    </div>
+  </article>
+
+  <article class="case">
+    <div class="chead rv"><span>Marketing agency · Marketing Lead & Business Administrator</span><span class="date">Oct 2026 – present</span></div>
+    <div class="rv"><div class="brand"><div class="mark"><div class="lg">EDK Business Solutions</div></div></div></div>
+    <h3 data-split>EDK Business Solutions</h3>
+    <div class="cgrid">
+      <div class="rv">
+        <p class="desc"><span class="hi">Full-service</span> digital marketing agency selling SEO, CRM management, ad creative, Meta advertising and website development.</p>
+        <div class="kv"><div><b>118</b><span>Contractors managed</span></div><div><b>5</b><span>Service lines sold</span></div></div>
+        <ul>
+          <li>Drive <em>agency revenue</em> on the front line of <em>client acquisition</em>, leading sales meetings and closing <em>mid- to high-ticket packages</em>.</li>
+          <li>Oversee a <em>118-person contractor network</em> through the contractor portal and all workforce communications.</li>
+          <li>Own <em>contractor recruiting end to end</em>, building and managing Indeed postings to staff client projects.</li>
+        </ul>
+      </div>
+      <div class="rv" style="--d:.15s"><div class="viz"><canvas data-shape="net" aria-hidden="true"></canvas></div><div class="cap"><span>118 contractors around one agency, illustrative layout</span></div></div>
+    </div>
+  </article>
+</div></section>
+
+<section class="sec calc hl"><div class="wrap grid">
+  <div>
+    <h2 data-split>What a $0.12 click buys</h2>
+    <p class="lead rv">My Lottolens Meta campaigns average $0.12 per click at a 4:1 ratio of lifetime value to acquisition cost. Move the budget to see that efficiency at scale.</p>
+    <div class="rv" style="--d:.1s">
+      <label class="rl" for="bud">Monthly ad budget <output id="bo">$1,000</output></label>
+      <input type="range" id="bud" min="100" max="10000" step="100" value="1000">
+      <div class="pre"><button data-v="500">$500</button><button data-v="1000" class="on">$1,000</button><button data-v="5000">$5,000</button><button data-v="10000">$10,000</button></div>
+    </div>
+  </div>
+  <div class="out rv" style="--d:.15s" aria-live="polite">
+    <div class="big" id="clk">8,333</div>
+    <p class="sub">Visitors at $0.12 per click</p>
+    <div class="kv"><div><b id="ltv">$4,000</b><span>Lifetime value if 4:1 holds</span></div><div><b>833</b><span>Clicks per $100</span></div></div>
+  </div>
+</div></section>
+
+<section class="sec hl" id="caps"><div class="wrap">
+  <div class="shead"><h2 data-split>Capabilities</h2><p class="rv" style="--d:.15s">The tools and skills behind the numbers.</p></div>
+  <div class="caps">
+    <div class="cp rv"><h4>Paid acquisition</h4><ul><li>Meta Ads Manager</li><li>Campaign builds</li><li>Audience targeting</li><li>CPC optimization</li><li>LTV and CAC analysis</li></ul></div>
+    <div class="cp rv" style="--d:.08s"><h4>Content and creative</h4><ul><li>Canva</li><li>High-volume social content</li><li>Ad creative</li><li>Website design</li></ul></div>
+    <div class="cp rv" style="--d:.16s"><h4>AI and automation</h4><ul><li>Agentic AI workflows</li><li>Muse</li><li>Claude</li><li>Perplexity</li><li>Automated content loops</li></ul></div>
+    <div class="cp rv" style="--d:.24s"><h4>Business and growth</h4><ul><li>Client acquisition</li><li>Sales meetings</li><li>Contractor recruiting</li><li>Indeed</li><li>Meta Business Suite</li></ul></div>
+  </div>
+</div></section>
+
+<section class="sec about hl" id="about"><div class="wrap grid">
+  <h2 data-split>One marketer, the output of a team</h2>
+  <div class="rv" style="--d:.15s">
+    <p>I'm Elias, a digital marketer based in North Arlington, New Jersey. I learned marketing by doing it: <span class="hi">running real budgets</span>, shipping creative every day and answering for the numbers.</p>
+    <p>Today I lead marketing for <span class="hi">three companies</span> in three very different markets. My edge is speed. I pair hands-on paid social and content work with <span class="hi">agentic AI workflows</span>, so one person produces at a team's pace.</p>
+  </div>
+</div></section>
+
+<section class="sec contact hl" id="contact"><div class="wrap">
+  <h2><span data-split style="display:block">Let's build your</span><span data-split class="dim" style="display:block">next campaign</span></h2>
+  <div class="cta rv" style="--d:.2s"><a class="btn go mag" href="mailto:ultra3470@gmail.com">Get in touch</a></div>
+  <div class="crow rv" style="--d:.3s">
+    <div class="ci"><span class="k">Email</span><b>ultra3470@gmail.com</b><button class="copy" data-c="ultra3470@gmail.com">Copy</button></div>
+    <div class="ci"><span class="k">Phone</span><b>(551) 271-5554</b><button class="copy" data-c="5512715554">Copy</button></div>
+    <div class="ci"><span class="k">Based in</span><b>North Arlington, NJ</b></div>
+  </div>
+</div></section>
+
+<footer class="hl"><div class="wrap"><span>© 2026 Elias Dami</span><span>Company names belong to their owners</span></div></footer>
+
+<script>
+{
+const D=document,R=D.documentElement;R.classList.add('js');
+const $=s=>D.querySelector(s),$$=s=>[...D.querySelectorAll(s)];
+const fmt=n=>Math.round(n).toLocaleString('en-US');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+let pmx=0;
+
+/* hero: dotted terrain hanging from the top */
+const cv=$('#wave'),cx=cv.getContext('2d');let W=0,H=0,waveOn=true;const t0=performance.now();
+const size=()=>{const d=Math.min(2,devicePixelRatio||1);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0)};
+const A=.17;
+const ht=(x,z,t)=>A*(Math.sin(x*.85+t*.32+pmx)*Math.cos(z*.9-t*.22)+.6*Math.sin(x*1.8-z*1.15+t*.45)+.28*Math.sin(x*3.4+z*2.1-t*.55));
+const wave=now=>{
+  const t=reduce?0:(now-t0)/1000;cx.clearRect(0,0,W,H);cx.fillStyle='#f2f2ef';
+  const f=H,zn=.94,zf=6.2,hz=-.017*H,rows=W<600?52:78;
+  for(let r=0;r<rows;r++){
+    const v=r/(rows-1),z=1/(1/zf+(1/zn-1/zf)*v);
+    const sp=(W<600?4.2:3.6)+8.5*v,dx=sp*z/f,xm=(W/2+12)*z/f,x0=Math.floor(-xm/dx)*dx;
+    const sz=.8+1.35*v;
+    for(let x=x0;x<=xm;x+=dx){
+      const y=ht(x,z,t),sx=W/2+x*f/z,sy=H-(hz+(1-y)*f/z);
+      if(sy<-3||sy>H+3)continue;
+      const c=Math.min(1,Math.max(0,(y/A+1.6)/3.2));
+      cx.globalAlpha=Math.min(1,(.08+.72*v)*(.3+1.05*c*c));
+      cx.fillRect(sx-sz/2,sy-sz/2,sz,sz);
+    }
+  }
+  cx.globalAlpha=1;
+  if(waveOn&&!reduce)requestAnimationFrame(wave);
+};
+size();requestAnimationFrame(wave);
+const waveRO=new ResizeObserver(()=>{size();if(reduce||!waveOn)wave(performance.now())});waveRO.observe(cv);
+const waveIO=new IntersectionObserver(e=>{const v=e[0].isIntersecting;if(v&&!waveOn){waveOn=true;requestAnimationFrame(wave)}waveOn=v});waveIO.observe(cv);
+
+/* split headings into words */
+$$('[data-split]').forEach(el=>{let i=0;el.innerHTML=el.textContent.trim().split(/\s+/).map(w=>`<span class="sw"><span style="--i:${i++}">${w}</span></span>`).join(' ')});
+
+/* reveal */
+const rvIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rvIO.unobserve(e.target)}}),{rootMargin:'0px 0px -10% 0px'});
+$$('.rv,[data-split]').forEach(el=>rvIO.observe(el));
+
+/* count up */
+const cnt=el=>{const n=+el.dataset.n,p=el.dataset.p||'',s=el.dataset.s||'',st=performance.now();const k=now=>{const q=Math.min(1,(now-st)/1800),e=1-(1-q)**4,v=n*e;el.textContent=p+(n<1?v.toFixed(2):fmt(v))+s;if(q<1)requestAnimationFrame(k)};requestAnimationFrame(k)};
+const nIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){if(!reduce)cnt(e.target);nIO.unobserve(e.target)}}),{rootMargin:'0px 0px -15% 0px'});
+$$('.num b').forEach(b=>nIO.observe(b));
+
+/* scroll: nav, progress, hero parallax */
+const nav=$('#nav'),prog=$('#prog'),hin=$('#hin');
+const onS=()=>{const y=scrollY,m=R.scrollHeight-innerHeight;prog.style.transform=`scaleX(${m>0?y/m:0})`;nav.classList.toggle('solid',y>30);if(!reduce&&y<innerHeight*1.2){cv.style.transform=`translateY(${y*.45}px)`;hin.style.transform=`translateY(${y*.12}px)`}};
+addEventListener('scroll',onS,{passive:true});onS();
+
+/* cursor and magnetic buttons */
+if(fine&&!reduce){
+  const cur=$('#cur');let x=innerWidth/2,y=innerHeight/2,cx2=x,cy2=y;
+  addEventListener('pointermove',e=>{x=e.clientX;y=e.clientY;pmx=(x/innerWidth-.5)*.5;cur.style.opacity='1'},{passive:true});
+  D.addEventListener('pointerleave',()=>cur.style.opacity='0');
+  const loop=()=>{cx2+=(x-cx2)*.18;cy2+=(y-cy2)*.18;cur.style.transform=`translate(${cx2}px,${cy2}px)`;requestAnimationFrame(loop)};loop();
+  $$('a,button,input').forEach(el=>{el.addEventListener('pointerenter',()=>cur.classList.add('big'));el.addEventListener('pointerleave',()=>cur.classList.remove('big'))});
+  $$('.mag').forEach(b=>{b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.22}px,${(e.clientY-r.top-r.height/2)*.3}px)`});b.addEventListener('pointerleave',()=>{b.style.transition='transform .5s cubic-bezier(.16,.84,.24,1),background .3s,box-shadow .4s';b.style.transform='';setTimeout(()=>b.style.transition='',500)})});
+}
+
+/* project figures: dots assemble into a shape */
+const shapes={
+  bars(){const p=[],n=22;for(let i=0;i<n;i++){const h=.2+.72*Math.abs(Math.sin(i*1.37+.4)*.6+Math.sin(i*.53)*.4),x0=.03+i*(.94/n),bw=.94/n*.66;for(let cx=0;cx<4;cx++)for(let y=0;y<=h;y+=.03)p.push([x0+cx*bw/3,.95-y])}for(let x=0;x<=1;x+=.011)p.push([x,.985,2]);return p},
+  plate(){const p=[],rr=(x,y,w,h,r,st)=>{for(let s=x+r;s<=x+w-r+1e-6;s+=st){p.push([s,y]);p.push([s,y+h])}for(let s=y+r*1.33;s<=y+h-r*1.33+1e-6;s+=st*1.33){p.push([x,s]);p.push([x+w,s])}[[x+r,y+r*1.33,Math.PI],[x+w-r,y+r*1.33,1.5*Math.PI],[x+w-r,y+h-r*1.33,0],[x+r,y+h-r*1.33,.5*Math.PI]].forEach(([c1,c2,a0])=>{for(let a=.3;a<1.5;a+=.3)p.push([c1+Math.cos(a0+a)*r,c2+Math.sin(a0+a)*r*1.33])})};
+    rr(.04,.12,.92,.76,.05,.01);
+    for(let i=0;i<5;i++){const x=.135+i*.155;rr(x,.29,.09,.18,.012,.014);if(i!==2)rr(x+.02,.6,.05,.1,.01,.014);else for(let a=0;a<6.28;a+=.42)p.push([x+.045+Math.cos(a)*.032,.65+Math.sin(a)*.043])}
+    [[.085,.19],[.915,.19],[.085,.81],[.915,.81]].forEach(([a,b])=>{for(let t=0;t<6.28;t+=.7)p.push([a+Math.cos(t)*.013,b+Math.sin(t)*.017])});return p},
+  net(){let s=5;const r=()=>(s=s*16807%2147483647)/2147483647,p=[];for(let t=0;t<6.28;t+=.22)p.push([.5+Math.cos(t)*.06,.5+Math.sin(t)*.08]);for(let i=0;i<118;i++){const a=r()*6.28,d=.13+.33*Math.sqrt(r()),x=.5+Math.cos(a)*d,y=.5+Math.sin(a)*d*1.3*.75;p.push([x,y,1]);if(i%4===0)for(let k=1;k<9;k++){const q=.14+k/9*.84;p.push([.5+(x-.5)*q,.5+(y-.5)*q,2])}}return p}
+};
+$$('.viz canvas').forEach(c=>{
+  const g=c.getContext('2d'),base=shapes[c.dataset.shape]();let w=0,h=0,pts=[],start=0,on=false,go=false,mxp=-999,myp=-999;
+  let s=9;const r=()=>(s=s*16807%2147483647)/2147483647;
+  const fit=()=>{const d=Math.min(2,devicePixelRatio||1);w=c.clientWidth;h=c.clientHeight;c.width=w*d;c.height=h*d;g.setTransform(d,0,0,d,0,0);const pad=Math.min(w,h)*.06;pts=base.map((b,i)=>{const o=pts[i];return{tx:pad+b[0]*(w-2*pad),ty:pad+b[1]*(h-2*pad),k:b[2]||0,sx:o?o.sx:r()*w,sy:o?o.sy:r()*h,dl:r()*.45,ph:r()*6.28,x:0,y:0}})};
+  const frame=now=>{
+    const T=(now-start)/1000;g.clearRect(0,0,w,h);g.fillStyle='#f2f2ef';
+    for(const p of pts){
+      const q=go?(reduce?1:Math.min(1,Math.max(0,(T-p.dl)/1.6))):0,e=1-(1-q)**4;
+      let x=p.sx+(p.tx-p.sx)*e+(reduce?0:Math.sin(T*.8+p.ph)*.45),y=p.sy+(p.ty-p.sy)*e+(reduce?0:Math.cos(T*.7+p.ph)*.45);
+      const dx=x-mxp,dy=y-myp,dd=dx*dx+dy*dy;if(dd<3600){const f=(60-Math.sqrt(dd))/60*14;const m=Math.sqrt(dd)||1;x+=dx/m*f;y+=dy/m*f}
+      const sz=p.k===1?2.6:p.k===2?1:1.5;g.globalAlpha=p.k===2?.35:go?.35+.55*e:.18;g.fillRect(x-sz/2,y-sz/2,sz,sz);
+    }
+    g.globalAlpha=1;if(on&&!reduce)requestAnimationFrame(frame);
+  };
+  fit();
+  const ro=new ResizeObserver(()=>{fit();if(!on||reduce)frame(performance.now())});ro.observe(c);
+  const io=new IntersectionObserver(e=>{const v=e[0].isIntersecting;if(v&&!go){go=true;start=performance.now()}if(v&&!on){on=true;requestAnimationFrame(frame)}on=v;if(reduce)frame(performance.now())},{threshold:.25});io.observe(c);
+  c.addEventListener('pointermove',e=>{const b=c.getBoundingClientRect();mxp=e.clientX-b.left;myp=e.clientY-b.top});
+  c.addEventListener('pointerleave',()=>{mxp=myp=-999});
+});
+
+/* calculator */
+const bud=$('#bud');let shown=8333,raf=0;
+const calc=()=>{const v=+bud.value,tg=Math.floor(v/.12);$('#bo').textContent='$'+fmt(v);$('#ltv').textContent='$'+fmt(v*4);bud.style.setProperty('--p',((v-100)/9900*100)+'%');$$('.pre button').forEach(b=>b.classList.toggle('on',+b.dataset.v===v));cancelAnimationFrame(raf);const fr=shown,st=performance.now();const k=now=>{const q=reduce?1:Math.min(1,(now-st)/600),e=1-(1-q)**3;shown=fr+(tg-fr)*e;$('#clk').textContent=fmt(shown);if(q<1)raf=requestAnimationFrame(k)};raf=requestAnimationFrame(k)};
+bud.addEventListener('input',calc);$$('.pre button').forEach(b=>b.addEventListener('click',()=>{bud.value=b.dataset.v;calc()}));calc();
+
+/* copy */
+$$('.copy').forEach(b=>b.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(b.dataset.c);b.textContent='Copied'}catch(e){b.textContent='Select to copy'}setTimeout(()=>b.textContent='Copy',1800)}));
+}
+</script>
+</body>
+</html>
